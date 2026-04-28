@@ -2,14 +2,18 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { ServicesGrid } from "@/components/site/ServicesGrid";
 import { CtaStrip } from "@/components/site/CtaStrip";
-import logo from "@/assets/logo-skilllogic.png";
+import {
+  CheckCircle2, Users, Award, Briefcase, Globe2, Code2, Smartphone,
+  TrendingUp, ShieldCheck, Headphones, Star, Quote, ArrowRight,
+} from "lucide-react";
+import logo from "@/assets/logo-skilllogic.jpg";
 import hero from "@/assets/hero-illustration.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SkillLogic Technologies — School Management & MLM Software" },
-      { name: "description", content: "SkillLogic Technologies builds MLM software, school management, ERP, CRM, billing, websites and digital marketing solutions." },
+      { title: "SkillLogic Technologies — Software, MLM & Digital Solutions" },
+      { name: "description", content: "SkillLogic Technologies builds MLM software, school management, ERP, CRM, billing, websites and digital marketing solutions trusted by 500+ clients." },
       { property: "og:title", content: "SkillLogic Technologies" },
       { property: "og:description", content: "Smart software & digital solutions for modern businesses." },
     ],
@@ -23,52 +27,280 @@ function Home() {
       {/* HERO */}
       <section
         className="relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #FF8B94 0%, #FFB6A3 100%)" }}
+        style={{ background: "linear-gradient(135deg, oklch(0.32 0.08 255) 0%, oklch(0.55 0.16 240) 60%, oklch(0.65 0.14 220) 100%)" }}
       >
-        <div className="mx-auto max-w-7xl px-4 py-12 md:py-16 grid lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-5 order-2 lg:order-1 relative">
+        {/* decorative shapes */}
+        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/5 blur-2xl" />
+        <div className="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-cyan-300/10 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-4 py-14 md:py-20 grid lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-5 order-2 lg:order-1">
             <img
               src={hero}
-              alt="Working on laptop with social media icons"
+              alt="Software development team"
               width={1024}
               height={1024}
-              className="w-full max-w-md mx-auto animate-float drop-shadow-xl"
+              className="w-full max-w-md mx-auto animate-float drop-shadow-2xl"
             />
           </div>
 
           <div className="lg:col-span-7 order-1 lg:order-2 text-white">
             <div className="flex justify-end mb-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3">
-                <img src={logo} alt="SkillLogic" className="h-14 w-auto" />
+              <div className="bg-white rounded-xl px-4 py-2 shadow-xl">
+                <img src={logo} alt="SkillLogic" className="h-12 w-auto" />
               </div>
             </div>
 
+            <span className="inline-block bg-white/15 backdrop-blur-sm text-white text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full mb-4">
+              Trusted by 500+ businesses worldwide
+            </span>
+
             <ul className="space-y-3 mb-8">
               <li className="flex items-start gap-3">
-                <span className="mt-3 h-2.5 w-2.5 rounded-full bg-white shrink-0" />
+                <span className="mt-3 h-2.5 w-2.5 rounded-full bg-cyan-300 shrink-0" />
                 <span className="text-3xl md:text-5xl font-extrabold leading-tight drop-shadow">School Management Software</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-3 h-2.5 w-2.5 rounded-full bg-white shrink-0" />
+                <span className="mt-3 h-2.5 w-2.5 rounded-full bg-cyan-300 shrink-0" />
                 <span className="text-3xl md:text-5xl font-extrabold leading-tight drop-shadow">MLM Software</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-3 h-2.5 w-2.5 rounded-full bg-cyan-300 shrink-0" />
+                <span className="text-3xl md:text-5xl font-extrabold leading-tight drop-shadow">ERP & CRM Solutions</span>
               </li>
             </ul>
 
-            <div className="inline-flex items-stretch rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-orange-400 to-red-500">
-              <div className="px-5 py-4 flex items-center text-white font-bold text-lg leading-tight">
-                Call for<br />Demo
+            <div className="flex flex-wrap items-stretch gap-4">
+              <div className="inline-flex items-stretch rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-400 to-orange-500">
+                <div className="px-5 py-4 flex items-center text-white font-bold text-lg leading-tight">
+                  Call for<br />Demo
+                </div>
+                <div className="bg-gradient-to-br from-amber-500 to-orange-600 px-6 py-3 text-white font-mono text-base md:text-lg font-bold tracking-wider">
+                  <a href="tel:7500766615" className="block hover:opacity-90">750 076 6615</a>
+                  <a href="tel:8957804051" className="block hover:opacity-90">895 780 4051</a>
+                  <a href="tel:8668210745" className="block hover:opacity-90">866 821 0745</a>
+                </div>
               </div>
-              <div className="bg-gradient-to-br from-orange-500 to-red-600 px-6 py-3 text-white font-mono text-lg md:text-xl font-bold tracking-wider">
-                <a href="tel:7500766615" className="block hover:opacity-90">750 076 6615</a>
-                <a href="tel:8957804051" className="block hover:opacity-90">895 780 4051</a>
-                <a href="tel:8668210745" className="block hover:opacity-90">866 821 0745</a>
-              </div>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 transition-colors text-white font-bold px-6 rounded-2xl shadow-xl"
+              >
+                Get a Free Quote <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
+      {/* STATS */}
+      <section className="bg-white border-b">
+        <div className="mx-auto max-w-7xl px-4 py-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {[
+            { n: "500+", l: "Happy Clients", I: Users },
+            { n: "350+", l: "Projects Delivered", I: Briefcase },
+            { n: "25+", l: "Industry Awards", I: Award },
+            { n: "15+", l: "Countries Served", I: Globe2 },
+          ].map(({ n, l, I }) => (
+            <div key={l} className="flex flex-col items-center">
+              <div className="h-14 w-14 rounded-full bg-brand-blue/10 grid place-items-center text-brand-blue mb-2">
+                <I className="h-7 w-7" />
+              </div>
+              <p className="text-3xl font-extrabold text-brand-blue">{n}</p>
+              <p className="text-sm text-muted-foreground font-medium">{l}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* About preview */}
+      <section className="bg-secondary py-16">
+        <div className="mx-auto max-w-7xl px-4 grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <span className="text-cyan-600 font-bold tracking-widest text-sm">ABOUT US</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
+              We Build Software That <span className="text-brand-blue">Drives Growth</span>
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              SkillLogic Technologies Pvt. Ltd. was founded in 2021 with the mission of providing sophisticated
+              business solutions to companies of every size. From MLM platforms to school ERP, web design to digital
+              marketing — we handle the full stack of modern business technology.
+            </p>
+            <ul className="grid sm:grid-cols-2 gap-2 mb-6">
+              {[
+                "Custom software development",
+                "Dedicated project managers",
+                "On-time delivery commitment",
+                "Lifetime technical support",
+              ].map((p) => (
+                <li key={p} className="flex items-center gap-2 text-sm">
+                  <CheckCircle2 className="h-5 w-5 text-cyan-600" />
+                  {p}
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-2 bg-brand-blue text-white font-semibold px-6 py-3 rounded-full hover:bg-brand-blue-dark transition-colors"
+            >
+              Learn More <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { I: Code2, t: "Web & App Dev", c: "from-blue-500 to-indigo-600" },
+              { I: Smartphone, t: "Mobile First", c: "from-cyan-500 to-blue-500" },
+              { I: TrendingUp, t: "Marketing", c: "from-amber-500 to-orange-500" },
+              { I: ShieldCheck, t: "Secure & Audited", c: "from-indigo-500 to-purple-600" },
+            ].map(({ I, t, c }) => (
+              <div key={t} className={`bg-gradient-to-br ${c} text-white rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform`}>
+                <I className="h-10 w-10 mb-3 opacity-90" />
+                <p className="font-bold text-lg">{t}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <ServicesGrid />
+
+      {/* MLM PLANS HIGHLIGHT */}
+      <section className="bg-gradient-to-br from-slate-900 to-blue-900 text-white py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="text-center mb-10">
+            <span className="text-cyan-300 font-bold tracking-widest text-sm">MLM SOFTWARE</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2">Complete MLM Plans We Develop</h2>
+            <p className="text-white/70 mt-2">Robust, scalable and fully customizable MLM platforms.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { t: "Binary Plan", d: "Two-leg structure with pair matching, capping & carry-forward bonuses." },
+              { t: "Unilevel Plan", d: "Unlimited width, level-based commissions and fast-start incentives." },
+              { t: "Matrix Plan", d: "Forced matrix (3x3, 5x5, etc.) with spillover and re-entry support." },
+              { t: "Generation Plan", d: "Generation depth bonuses ideal for product-driven MLM businesses." },
+              { t: "Spillover Binary", d: "Auto-fill binary structure that motivates upline sponsors." },
+              { t: "Crypto MLM", d: "Token-based payouts, wallet integration and on-chain transparency." },
+              { t: "Smart Contract", d: "Trustless commission distribution via audited smart contracts." },
+              { t: "Hybrid Plan", d: "Custom-blended compensation logic tailored to your business model." },
+            ].map((p) => (
+              <Link
+                key={p.t}
+                to="/mlm"
+                className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10 transition-all hover:-translate-y-1"
+              >
+                <h3 className="text-lg font-bold text-cyan-300">{p.t}</h3>
+                <p className="text-sm text-white/75 mt-2">{p.d}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="text-center mb-10">
+            <span className="text-cyan-600 font-bold tracking-widest text-sm">WHY CHOOSE US</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2">Why Businesses Trust SkillLogic</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { I: ShieldCheck, t: "Secure & Reliable", d: "Audited code, encrypted data and regular security patches keep your business safe." },
+              { I: Headphones, t: "24/7 Support", d: "Dedicated support team available round the clock via call, chat and email." },
+              { I: TrendingUp, t: "Scalable Architecture", d: "Solutions designed to grow with your business — from startup to enterprise." },
+              { I: Award, t: "Industry Experts", d: "Decades of combined experience across software, marketing and finance." },
+              { I: Users, t: "Client First Approach", d: "We listen, advise and customize. Your success is the only KPI we measure." },
+              { I: CheckCircle2, t: "On-Time Delivery", d: "Agile sprints with weekly demos so you always know what's shipping when." },
+            ].map(({ I, t, d }) => (
+              <div key={t} className="border rounded-xl p-6 hover:border-brand-blue hover:shadow-lg transition-all bg-white group">
+                <div className="h-12 w-12 rounded-lg bg-brand-blue/10 text-brand-blue grid place-items-center mb-4 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                  <I className="h-6 w-6" />
+                </div>
+                <h3 className="font-bold text-lg mb-2">{t}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PORTFOLIO */}
+      <section className="bg-secondary py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="text-center mb-10">
+            <span className="text-cyan-600 font-bold tracking-widest text-sm">OUR WORK</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2">Recent Projects</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { t: "EduPro School ERP", c: "Education", g: "from-blue-500 to-cyan-500" },
+              { t: "VertexMLM Platform", c: "Network Marketing", g: "from-indigo-500 to-purple-600" },
+              { t: "MediCare Hospital Suite", c: "Healthcare", g: "from-emerald-500 to-teal-600" },
+              { t: "RetailX Billing", c: "Retail / POS", g: "from-amber-500 to-orange-500" },
+              { t: "RealEstate CRM", c: "Property", g: "from-rose-500 to-pink-600" },
+              { t: "TokenChain Wallet", c: "Blockchain", g: "from-slate-700 to-blue-700" },
+            ].map((p) => (
+              <div key={p.t} className="rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow group">
+                <div className={`aspect-[16/10] bg-gradient-to-br ${p.g} grid place-items-center text-white`}>
+                  <p className="text-2xl font-extrabold tracking-wider opacity-90 group-hover:scale-110 transition-transform">{p.t.split(" ")[0]}</p>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold">{p.t}</h3>
+                  <p className="text-sm text-muted-foreground">{p.c}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="text-center mb-10">
+            <span className="text-cyan-600 font-bold tracking-widest text-sm">TESTIMONIALS</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2">What Our Clients Say</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { n: "Rohan Mehta", r: "CEO, VertexMLM", q: "SkillLogic delivered our binary MLM platform in record time. Calculations are flawless and support is fantastic." },
+              { n: "Priya Sharma", r: "Principal, EduPro", q: "Our school ERP transformed admissions, fees and attendance. Parents and teachers love the mobile app." },
+              { n: "Arjun Singh", r: "Founder, RetailX", q: "The team understood our retail workflow perfectly. The POS system handles GST and inventory effortlessly." },
+            ].map((t) => (
+              <div key={t.n} className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 relative border">
+                <Quote className="h-8 w-8 text-brand-blue/20 absolute top-4 right-4" />
+                <div className="flex gap-1 mb-3 text-amber-500">
+                  {[0, 1, 2, 3, 4].map((i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+                </div>
+                <p className="text-sm text-muted-foreground italic mb-5 leading-relaxed">"{t.q}"</p>
+                <div className="flex items-center gap-3">
+                  <div className="h-11 w-11 rounded-full bg-brand-blue text-white grid place-items-center font-bold">
+                    {t.n.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-bold text-sm">{t.n}</p>
+                    <p className="text-xs text-muted-foreground">{t.r}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CLIENTS LOGO STRIP */}
+      <section className="bg-secondary py-12 border-y">
+        <div className="mx-auto max-w-7xl px-4">
+          <p className="text-center text-sm font-bold tracking-widest text-muted-foreground mb-6">TRUSTED BY LEADING BRANDS</p>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-6 items-center">
+            {["Vertex", "EduPro", "MediCare", "RetailX", "TokenChain", "RealtyHub"].map((b) => (
+              <div key={b} className="text-center text-2xl font-extrabold text-muted-foreground/60 hover:text-brand-blue transition-colors">
+                {b}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <CtaStrip />
     </Layout>
   );

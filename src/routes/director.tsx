@@ -31,7 +31,7 @@ function Director() {
           </div>
         </div>
         <div className="lg:col-span-4 order-1 lg:order-2">
-          <div className="border-4 border-brand-orange rounded-lg p-2 bg-white shadow-lg">
+          <div className="border-4 border-brand-blue rounded-lg p-2 bg-white shadow-lg">
             <img src={director} alt="Satyam Trivedi" loading="lazy" width={600} height={700} className="w-full rounded" />
           </div>
           <p className="text-center mt-4 font-bold">[Satyam Trivedi]</p>

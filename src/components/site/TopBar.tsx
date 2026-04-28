@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 
 export function TopBar() {
   return (
-    <div className="bg-brand-orange text-white text-xs">
+    <div className="bg-brand-blue-dark text-white text-xs">
       <div className="mx-auto max-w-7xl flex items-center justify-between px-4 py-2 flex-wrap gap-2">
         <a href="mailto:support@skilllogic.in" className="flex items-center gap-2 hover:underline">
           <Mail className="h-3.5 w-3.5" />
