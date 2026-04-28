@@ -9,8 +9,74 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WebsiteDevelopmentRouteImport } from './routes/website-development'
+import { Route as VisionRouteImport } from './routes/vision'
+import { Route as TrainingRouteImport } from './routes/training'
+import { Route as SslHostingRouteImport } from './routes/ssl-hosting'
+import { Route as SeoRouteImport } from './routes/seo'
+import { Route as MlmRouteImport } from './routes/mlm'
+import { Route as ErpRouteImport } from './routes/erp'
+import { Route as DirectorRouteImport } from './routes/director'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CareerRouteImport } from './routes/career'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WebsiteDevelopmentRoute = WebsiteDevelopmentRouteImport.update({
+  id: '/website-development',
+  path: '/website-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VisionRoute = VisionRouteImport.update({
+  id: '/vision',
+  path: '/vision',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrainingRoute = TrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SslHostingRoute = SslHostingRouteImport.update({
+  id: '/ssl-hosting',
+  path: '/ssl-hosting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SeoRoute = SeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MlmRoute = MlmRouteImport.update({
+  id: '/mlm',
+  path: '/mlm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ErpRoute = ErpRouteImport.update({
+  id: '/erp',
+  path: '/erp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DirectorRoute = DirectorRouteImport.update({
+  id: '/director',
+  path: '/director',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareerRoute = CareerRouteImport.update({
+  id: '/career',
+  path: '/career',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +85,186 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/career': typeof CareerRoute
+  '/contact': typeof ContactRoute
+  '/director': typeof DirectorRoute
+  '/erp': typeof ErpRoute
+  '/mlm': typeof MlmRoute
+  '/seo': typeof SeoRoute
+  '/ssl-hosting': typeof SslHostingRoute
+  '/training': typeof TrainingRoute
+  '/vision': typeof VisionRoute
+  '/website-development': typeof WebsiteDevelopmentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/career': typeof CareerRoute
+  '/contact': typeof ContactRoute
+  '/director': typeof DirectorRoute
+  '/erp': typeof ErpRoute
+  '/mlm': typeof MlmRoute
+  '/seo': typeof SeoRoute
+  '/ssl-hosting': typeof SslHostingRoute
+  '/training': typeof TrainingRoute
+  '/vision': typeof VisionRoute
+  '/website-development': typeof WebsiteDevelopmentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/career': typeof CareerRoute
+  '/contact': typeof ContactRoute
+  '/director': typeof DirectorRoute
+  '/erp': typeof ErpRoute
+  '/mlm': typeof MlmRoute
+  '/seo': typeof SeoRoute
+  '/ssl-hosting': typeof SslHostingRoute
+  '/training': typeof TrainingRoute
+  '/vision': typeof VisionRoute
+  '/website-development': typeof WebsiteDevelopmentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/career'
+    | '/contact'
+    | '/director'
+    | '/erp'
+    | '/mlm'
+    | '/seo'
+    | '/ssl-hosting'
+    | '/training'
+    | '/vision'
+    | '/website-development'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/career'
+    | '/contact'
+    | '/director'
+    | '/erp'
+    | '/mlm'
+    | '/seo'
+    | '/ssl-hosting'
+    | '/training'
+    | '/vision'
+    | '/website-development'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/career'
+    | '/contact'
+    | '/director'
+    | '/erp'
+    | '/mlm'
+    | '/seo'
+    | '/ssl-hosting'
+    | '/training'
+    | '/vision'
+    | '/website-development'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CareerRoute: typeof CareerRoute
+  ContactRoute: typeof ContactRoute
+  DirectorRoute: typeof DirectorRoute
+  ErpRoute: typeof ErpRoute
+  MlmRoute: typeof MlmRoute
+  SeoRoute: typeof SeoRoute
+  SslHostingRoute: typeof SslHostingRoute
+  TrainingRoute: typeof TrainingRoute
+  VisionRoute: typeof VisionRoute
+  WebsiteDevelopmentRoute: typeof WebsiteDevelopmentRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/website-development': {
+      id: '/website-development'
+      path: '/website-development'
+      fullPath: '/website-development'
+      preLoaderRoute: typeof WebsiteDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vision': {
+      id: '/vision'
+      path: '/vision'
+      fullPath: '/vision'
+      preLoaderRoute: typeof VisionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/training': {
+      id: '/training'
+      path: '/training'
+      fullPath: '/training'
+      preLoaderRoute: typeof TrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ssl-hosting': {
+      id: '/ssl-hosting'
+      path: '/ssl-hosting'
+      fullPath: '/ssl-hosting'
+      preLoaderRoute: typeof SslHostingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seo': {
+      id: '/seo'
+      path: '/seo'
+      fullPath: '/seo'
+      preLoaderRoute: typeof SeoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mlm': {
+      id: '/mlm'
+      path: '/mlm'
+      fullPath: '/mlm'
+      preLoaderRoute: typeof MlmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/erp': {
+      id: '/erp'
+      path: '/erp'
+      fullPath: '/erp'
+      preLoaderRoute: typeof ErpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/director': {
+      id: '/director'
+      path: '/director'
+      fullPath: '/director'
+      preLoaderRoute: typeof DirectorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/career': {
+      id: '/career'
+      path: '/career'
+      fullPath: '/career'
+      preLoaderRoute: typeof CareerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +277,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CareerRoute: CareerRoute,
+  ContactRoute: ContactRoute,
+  DirectorRoute: DirectorRoute,
+  ErpRoute: ErpRoute,
+  MlmRoute: MlmRoute,
+  SeoRoute: SeoRoute,
+  SslHostingRoute: SslHostingRoute,
+  TrainingRoute: TrainingRoute,
+  VisionRoute: VisionRoute,
+  WebsiteDevelopmentRoute: WebsiteDevelopmentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
