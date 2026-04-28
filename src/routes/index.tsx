@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { ServicesGrid } from "@/components/site/ServicesGrid";
 import { CtaStrip } from "@/components/site/CtaStrip";
-import logo from "@/assets/logo-skilllogic.png";
+import logo from "@/assets/logo-skilllogic.jpg";
 import hero from "@/assets/hero-illustration.png";
 
 export const Route = createFileRoute("/")({

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ShoppingBag, Menu, X, ChevronDown } from "lucide-react";
-import logo from "@/assets/logo-skilllogic.png";
+import logo from "@/assets/logo-skilllogic.jpg";
 import { TopBar } from "./TopBar";
 
 type NavItem = {
