@@ -35,6 +35,7 @@
   --color-brand-blue: var(--brand-blue);
   --color-brand-blue-dark: var(--brand-blue-dark);
   --color-brand-teal: var(--brand-teal);
+  --color-brand-amber: var(--brand-amber);
   --color-hero-from: var(--hero-from);
   --color-hero-to: var(--hero-to);
   --color-footer: var(--footer);
@@ -81,15 +82,16 @@
   --input: oklch(0.92 0.01 250);
   --ring: oklch(0.7 0.04 256);
 
-  /* Brand */
-  --brand-orange: oklch(0.7 0.18 50);       /* #F57C20 ~ */
-  --brand-orange-dark: oklch(0.62 0.2 40);
-  --brand-blue: oklch(0.6 0.14 245);        /* #2E7BC4 */
-  --brand-blue-dark: oklch(0.52 0.12 245);  /* footer #2874A6 */
-  --brand-teal: oklch(0.72 0.13 180);       /* #1ABC9C */
-  --hero-from: oklch(0.78 0.12 25);         /* coral */
-  --hero-to: oklch(0.82 0.09 35);
-  --footer: oklch(0.52 0.12 245);
+  /* Brand — logo-aligned blue palette */
+  --brand-orange: oklch(0.62 0.16 245);        /* re-aliased to primary blue (#2E86DE-ish) */
+  --brand-orange-dark: oklch(0.5 0.14 250);    /* deeper blue */
+  --brand-blue: oklch(0.62 0.16 245);          /* primary logo blue */
+  --brand-blue-dark: oklch(0.32 0.08 255);     /* deep navy footer */
+  --brand-teal: oklch(0.72 0.13 200);          /* cyan accent */
+  --brand-amber: oklch(0.78 0.16 75);          /* warm CTA accent */
+  --hero-from: oklch(0.45 0.12 250);           /* deep blue hero */
+  --hero-to: oklch(0.65 0.15 220);             /* sky blue */
+  --footer: oklch(0.28 0.07 255);              /* deep navy */
 }
 
 .dark { --background: oklch(0.13 0.04 264); --foreground: oklch(0.98 0 0); }
