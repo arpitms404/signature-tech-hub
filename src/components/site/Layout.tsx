@@ -1,13 +1,15 @@
 import { ReactNode } from "react";
+import { useLocation } from "@tanstack/react-router";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { FloatingButtons } from "./FloatingButtons";
 
 export function Layout({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1 animate-fade-in">{children}</main>
+      <main key={pathname} className="flex-1 page-transition">{children}</main>
       <Footer />
       <FloatingButtons />
     </div>
