@@ -254,26 +254,53 @@ function Home() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-10">
             <span className="text-cyan-600 font-bold tracking-widest text-sm">OUR WORK</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-2">Recent Projects</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2">
+              Recent <span className="text-gradient-brand">Projects</span>
+            </h2>
+            <p className="text-muted-foreground mt-2">A glimpse of products we shipped for clients across industries.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { t: "EduPro School ERP", c: "Education", g: "from-blue-500 to-cyan-500" },
-              { t: "VertexMLM Platform", c: "Network Marketing", g: "from-indigo-500 to-purple-600" },
-              { t: "MediCare Hospital Suite", c: "Healthcare", g: "from-emerald-500 to-teal-600" },
-              { t: "RetailX Billing", c: "Retail / POS", g: "from-amber-500 to-orange-500" },
-              { t: "RealEstate CRM", c: "Property", g: "from-rose-500 to-pink-600" },
-              { t: "TokenChain Wallet", c: "Blockchain", g: "from-slate-700 to-blue-700" },
-            ].map((p) => (
-              <div key={p.t} className="rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow group">
-                <div className={`aspect-[16/10] bg-gradient-to-br ${p.g} grid place-items-center text-white`}>
-                  <p className="text-2xl font-extrabold tracking-wider opacity-90 group-hover:scale-110 transition-transform">{p.t.split(" ")[0]}</p>
+              { t: "EduPro School ERP", c: "Education", g: "from-blue-500 to-cyan-500", I: GraduationCapIcon, tags: ["React", "Node", "Postgres"], d: "Admissions, fees, attendance & parent portal." },
+              { t: "VertexMLM Platform", c: "Network Marketing", g: "from-indigo-500 to-purple-600", I: NetworkIcon, tags: ["Binary", "Wallet", "API"], d: "Binary plan with real-time payouts." },
+              { t: "MediCare Hospital Suite", c: "Healthcare", g: "from-emerald-500 to-teal-600", I: HeartPulseIcon, tags: ["HMS", "EMR", "Billing"], d: "OPD, IPD, pharmacy & lab modules." },
+              { t: "RetailX Billing", c: "Retail / POS", g: "from-amber-500 to-orange-500", I: ReceiptIcon, tags: ["GST", "Inventory", "POS"], d: "Multi-store POS with GST & inventory." },
+              { t: "RealEstate CRM", c: "Property", g: "from-rose-500 to-pink-600", I: Building2Icon, tags: ["Leads", "CRM", "Mobile"], d: "Lead pipeline, site visits & follow-ups." },
+              { t: "TokenChain Wallet", c: "Blockchain", g: "from-slate-700 to-blue-700", I: CoinsIcon, tags: ["Web3", "EVM", "Smart Contracts"], d: "Custodial wallet with on-chain payouts." },
+            ].map((p, i) => (
+              <article
+                key={p.t}
+                style={{ animationDelay: `${i * 80}ms` }}
+                className="reveal group relative rounded-2xl overflow-hidden bg-white shadow-md card-hover"
+              >
+                {/* Animated thumbnail */}
+                <div className={`relative aspect-[16/10] bg-gradient-to-br ${p.g} overflow-hidden`}>
+                  <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_20%_20%,white_1px,transparent_1px),radial-gradient(circle_at_80%_60%,white_1px,transparent_1px)] [background-size:24px_24px,32px_32px]" />
+                  <div className="absolute -inset-1 bg-[linear-gradient(115deg,transparent_30%,rgba(255,255,255,0.35)_50%,transparent_70%)] bg-[length:200%_100%] opacity-0 group-hover:opacity-100 animate-shimmer" />
+                  <div className="absolute inset-0 grid place-items-center text-white">
+                    <p.I className="h-16 w-16 drop-shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6" strokeWidth={1.4} />
+                  </div>
+                  {/* Overlay (slides up on hover) */}
+                  <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/85 via-black/55 to-transparent p-4 text-white">
+                    <p className="text-xs font-semibold tracking-wider uppercase text-cyan-300">{p.c}</p>
+                    <p className="text-sm mt-1">{p.d}</p>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {p.tags.map((tg) => (
+                        <span key={tg} className="text-[10px] uppercase tracking-wider bg-white/15 backdrop-blur-sm px-2 py-0.5 rounded-full">{tg}</span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <div className="p-5">
-                  <h3 className="font-bold">{p.t}</h3>
-                  <p className="text-sm text-muted-foreground">{p.c}</p>
+                <div className="p-5 flex items-center justify-between">
+                  <div>
+                    <h3 className="font-bold group-hover:text-brand-blue transition-colors">{p.t}</h3>
+                    <p className="text-sm text-muted-foreground">{p.c}</p>
+                  </div>
+                  <span className="h-9 w-9 rounded-full bg-brand-blue/10 text-brand-blue grid place-items-center group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
