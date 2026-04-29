@@ -8,6 +8,7 @@ import {
   GraduationCap as GraduationCapIcon, Network as NetworkIcon,
   HeartPulse as HeartPulseIcon, Receipt as ReceiptIcon,
   Building2 as Building2Icon, Coins as CoinsIcon,
+  Search, PencilRuler, Rocket, LifeBuoy, Workflow,
 } from "lucide-react";
 import logo from "@/assets/logo-skilllogic.jpg";
 import hero from "@/assets/hero-illustration.png";
@@ -28,74 +29,88 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <Layout>
-      {/* HERO */}
-      <section className="relative overflow-hidden isolate">
-        {/* Video background */}
+      {/* HERO — Luxury */}
+      <section className="relative overflow-hidden isolate min-h-[88vh] flex items-center">
+        {/* Cinematic video */}
         <video
           src={heroVideo.url}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover -z-10"
+          className="absolute inset-0 h-full w-full object-cover -z-20"
         />
-        {/* Color overlay for legibility */}
+        {/* Dark luxury overlay (multi-stop) */}
         <div
           className="absolute inset-0 -z-10"
-          style={{ background: "linear-gradient(135deg, oklch(0.32 0.08 255 / 0.88) 0%, oklch(0.45 0.16 240 / 0.78) 60%, oklch(0.55 0.14 220 / 0.72) 100%)" }}
+          style={{
+            background:
+              "radial-gradient(120% 80% at 70% 20%, oklch(0.35 0.12 250 / 0.55) 0%, transparent 60%), linear-gradient(180deg, oklch(0.16 0.04 260 / 0.85) 0%, oklch(0.18 0.06 255 / 0.78) 50%, oklch(0.12 0.04 260 / 0.92) 100%)",
+          }}
         />
-        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/5 blur-2xl" />
-        <div className="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-cyan-300/10 blur-3xl" />
+        {/* Subtle grain + gold flare */}
+        <div className="absolute -top-32 right-1/4 w-[34rem] h-[34rem] rounded-full bg-amber-300/[0.06] blur-[120px] -z-10" />
+        <div className="absolute -bottom-40 -left-20 w-[28rem] h-[28rem] rounded-full bg-cyan-400/[0.08] blur-[100px] -z-10" />
 
-        <div className="relative mx-auto max-w-7xl px-4 py-14 md:py-20 grid lg:grid-cols-12 gap-8 items-center">
+        <div className="relative mx-auto max-w-7xl w-full px-4 py-16 md:py-24 grid lg:grid-cols-12 gap-10 items-center">
+          {/* Left — Hero illustration in glass frame */}
           <div className="lg:col-span-5 order-2 lg:order-1 animate-slide-in-left">
-            <img
-              src={hero}
-              alt="Software development team"
-              width={1024}
-              height={1024}
-              className="w-full max-w-md mx-auto animate-float drop-shadow-2xl"
-            />
+            <div className="relative mx-auto max-w-md">
+              <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-cyan-300/20 via-white/5 to-amber-300/10 blur-xl" />
+              <div className="relative rounded-[2rem] border border-white/15 bg-white/[0.04] backdrop-blur-xl p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
+                <img
+                  src={hero}
+                  alt="Software development team"
+                  width={1024}
+                  height={1024}
+                  className="w-full animate-float drop-shadow-2xl"
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="lg:col-span-7 order-1 lg:order-2 text-white animate-slide-in-right">
-            <div className="flex justify-end mb-6">
-              <div className="bg-white rounded-xl px-4 py-2 shadow-xl card-hover">
+          {/* Right — Copy */}
+          <div className="lg:col-span-7 order-1 lg:order-2 text-white">
+            <div className="flex justify-end mb-6 animate-slide-in-right">
+              <div className="rounded-2xl px-4 py-2 shadow-2xl border border-white/15 bg-white/90 backdrop-blur-md card-hover">
                 <img src={logo} alt="SkillLogic" className="h-12 w-auto" />
               </div>
             </div>
 
-            <span className="inline-block bg-white/15 backdrop-blur-sm text-white text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full mb-4 reveal">
-              Trusted by 500+ businesses worldwide
-            </span>
+            {/* Eyebrow chip */}
+            <div className="reveal inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur-md px-3.5 py-1.5 mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-300 animate-pulse" />
+              <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/85">
+                Premium Software & Digital Solutions
+              </span>
+            </div>
 
-            <ul className="space-y-3 mb-8">
-              {[
-                "School Management Software",
-                "MLM Software",
-                "ERP & CRM Solutions",
-              ].map((line, i) => (
-                <li
-                  key={line}
-                  className="flex items-start gap-3 reveal"
-                  style={{ animationDelay: `${150 + i * 120}ms` }}
-                >
-                  <span className="mt-3 h-2.5 w-2.5 rounded-full bg-cyan-300 shrink-0 animate-pulse" />
-                  <span className="text-3xl md:text-5xl font-extrabold leading-tight drop-shadow">
-                    {line}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            {/* Display headline */}
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-5 reveal reveal-delay-1">
+              <span className="block text-white/95">Engineering</span>
+              <span className="block">
+                <span className="text-gradient-brand">refined software</span>
+              </span>
+              <span className="block text-white/85">for ambitious brands.</span>
+            </h1>
 
-            <div className="flex flex-wrap items-stretch gap-4 reveal reveal-delay-4">
-              <div className="inline-flex items-stretch rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-400 to-orange-500 card-hover">
-                <div className="px-5 py-4 flex items-center text-white font-bold text-lg leading-tight">
+            <p className="reveal reveal-delay-2 max-w-xl text-white/75 text-base md:text-lg leading-relaxed mb-7 font-light">
+              From <span className="text-cyan-300 font-medium">School ERP</span> to{" "}
+              <span className="text-cyan-300 font-medium">MLM platforms</span>,{" "}
+              <span className="text-cyan-300 font-medium">CRM</span> &{" "}
+              <span className="text-cyan-300 font-medium">enterprise apps</span> — crafted with
+              precision, delivered with care, trusted by 500+ teams worldwide.
+            </p>
+
+            {/* CTA group */}
+            <div className="reveal reveal-delay-3 flex flex-wrap items-stretch gap-4 mb-8">
+              <div className="inline-flex items-stretch rounded-2xl overflow-hidden shadow-2xl border border-amber-300/30 bg-gradient-to-br from-amber-400 to-orange-500 card-hover">
+                <div className="px-5 py-4 flex items-center text-white font-bold text-base leading-tight">
                   Call for<br />Demo
                 </div>
-                <div className="bg-gradient-to-br from-amber-500 to-orange-600 px-6 py-3 text-white font-mono text-base md:text-lg font-bold tracking-wider">
+                <div className="bg-gradient-to-br from-amber-500 to-orange-600 px-5 py-3 text-white font-mono text-sm md:text-base font-bold tracking-wider">
                   <a href="tel:7500766615" className="block hover:opacity-90">750 076 6615</a>
                   <a href="tel:8957804051" className="block hover:opacity-90">895 780 4051</a>
                   <a href="tel:8668210745" className="block hover:opacity-90">866 821 0745</a>
@@ -103,13 +118,34 @@ function Home() {
               </div>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 transition-all hover:scale-105 text-white font-bold px-6 rounded-2xl shadow-xl group"
+                className="inline-flex items-center gap-2 bg-white/[0.08] hover:bg-white/15 backdrop-blur-md border border-white/20 transition-all hover:scale-[1.03] text-white font-semibold px-6 rounded-2xl shadow-xl group"
               >
-                Get a Free Quote <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                Get a Free Quote
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
+            </div>
+
+            {/* Trust strip */}
+            <div className="reveal reveal-delay-4 grid grid-cols-3 gap-3 max-w-xl">
+              {[
+                { k: "500+", v: "Clients" },
+                { k: "350+", v: "Projects" },
+                { k: "15+", v: "Countries" },
+              ].map((s) => (
+                <div
+                  key={s.v}
+                  className="rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-md px-4 py-3 text-center"
+                >
+                  <p className="font-display text-2xl text-white">{s.k}</p>
+                  <p className="text-[11px] uppercase tracking-widest text-white/60">{s.v}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
+
+        {/* Soft bottom fade into next section */}
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-background pointer-events-none -z-10" />
       </section>
 
       {/* STATS */}
@@ -304,6 +340,135 @@ function Home() {
                   </span>
                 </div>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS / WORKFLOW */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-blue/30 to-transparent" />
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="text-center mb-14">
+            <span className="text-cyan-600 font-bold tracking-[0.25em] text-xs uppercase">How We Work</span>
+            <h2 className="font-display text-3xl md:text-5xl font-semibold mt-3">
+              A proven <span className="text-gradient-brand">5-step process</span>
+            </h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+              From the first conversation to long-term support — every engagement follows
+              the same disciplined workflow that keeps quality high and surprises low.
+            </p>
+          </div>
+          {/* Connector line */}
+          <div className="relative">
+            <div className="hidden lg:block absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-brand-blue/0 via-brand-blue/40 to-brand-blue/0" />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+              {[
+                { I: Search, t: "Discover", d: "Workshops to understand goals, audience, scope and success metrics." },
+                { I: PencilRuler, t: "Design", d: "Wireframes, UI prototypes and clickable flows reviewed with you." },
+                { I: Code2, t: "Develop", d: "Agile sprints, weekly demos, code reviews and CI/CD pipelines." },
+                { I: Rocket, t: "Deploy", d: "Performance, security & UAT sign-off, then a smooth production launch." },
+                { I: LifeBuoy, t: "Support", d: "Continuous monitoring, updates and 24/7 helpdesk for your team." },
+              ].map((s, i) => (
+                <div
+                  key={s.t}
+                  style={{ animationDelay: `${i * 100}ms` }}
+                  className="reveal relative text-center group"
+                >
+                  <div className="relative mx-auto h-24 w-24 rounded-full bg-white border-2 border-brand-blue/20 grid place-items-center text-brand-blue shadow-lg group-hover:border-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all">
+                    <s.I className="h-9 w-9 icon-anim" strokeWidth={1.6} />
+                    <span className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-amber-400 text-white text-xs font-bold grid place-items-center shadow-md">
+                      0{i + 1}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-lg mt-5">{s.t}</h3>
+                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{s.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TECHNOLOGIES STACK */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-cyan-50/50 relative overflow-hidden">
+        <div className="absolute -top-40 -left-20 w-96 h-96 rounded-full bg-brand-blue/5 blur-3xl" />
+        <div className="absolute -bottom-40 -right-20 w-96 h-96 rounded-full bg-cyan-400/5 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl px-4">
+          <div className="text-center mb-12">
+            <span className="text-cyan-600 font-bold tracking-[0.25em] text-xs uppercase">Tech Stack</span>
+            <h2 className="font-display text-3xl md:text-5xl font-semibold mt-3">
+              Built with <span className="text-gradient-brand">modern technologies</span>
+            </h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+              We use the same stack trusted by Fortune 500 product teams — fast, secure
+              and built to scale alongside your business.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                cat: "Frontend",
+                color: "from-blue-500 to-cyan-500",
+                items: ["React", "Next.js", "TypeScript", "Tailwind", "Vue", "Angular"],
+              },
+              {
+                cat: "Backend",
+                color: "from-emerald-500 to-teal-600",
+                items: ["Node.js", "Python", "Java", "PHP / Laravel", "Go", ".NET"],
+              },
+              {
+                cat: "Mobile",
+                color: "from-violet-500 to-purple-600",
+                items: ["Flutter", "React Native", "Swift", "Kotlin", "Ionic", "PWA"],
+              },
+              {
+                cat: "Database & Cloud",
+                color: "from-amber-500 to-orange-600",
+                items: ["PostgreSQL", "MongoDB", "MySQL", "AWS", "Azure", "GCP"],
+              },
+            ].map((g, i) => (
+              <div
+                key={g.cat}
+                style={{ animationDelay: `${i * 80}ms` }}
+                className="reveal relative rounded-2xl bg-white border border-border p-6 card-hover group overflow-hidden"
+              >
+                <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${g.color}`} />
+                <div className={`inline-flex items-center justify-center h-11 w-11 rounded-xl bg-gradient-to-br ${g.color} text-white mb-4 shadow-md`}>
+                  <Workflow className="h-5 w-5" />
+                </div>
+                <h3 className="font-bold text-lg mb-3">{g.cat}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {g.items.map((it) => (
+                    <span
+                      key={it}
+                      className="text-xs font-medium px-3 py-1 rounded-full bg-secondary text-foreground/80 border border-border hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-colors"
+                    >
+                      {it}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Success rate strip */}
+          <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { k: "98%", v: "Client Retention" },
+              { k: "350+", v: "Projects Delivered" },
+              { k: "24/7", v: "Support Coverage" },
+              { k: "5★", v: "Average Rating" },
+            ].map((s, i) => (
+              <div
+                key={s.v}
+                style={{ animationDelay: `${i * 70}ms` }}
+                className="reveal text-center rounded-2xl bg-white border border-border p-6 card-hover"
+              >
+                <p className="font-display text-3xl md:text-4xl text-gradient-brand">{s.k}</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">{s.v}</p>
+              </div>
             ))}
           </div>
         </div>
