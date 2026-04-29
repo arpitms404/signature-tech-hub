@@ -321,15 +321,19 @@ function Home() {
               { n: "Rohan Mehta", r: "CEO, VertexMLM", q: "SkillLogic delivered our binary MLM platform in record time. Calculations are flawless and support is fantastic." },
               { n: "Priya Sharma", r: "Principal, EduPro", q: "Our school ERP transformed admissions, fees and attendance. Parents and teachers love the mobile app." },
               { n: "Arjun Singh", r: "Founder, RetailX", q: "The team understood our retail workflow perfectly. The POS system handles GST and inventory effortlessly." },
-            ].map((t) => (
-              <div key={t.n} className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 relative border">
-                <Quote className="h-8 w-8 text-brand-blue/20 absolute top-4 right-4" />
+            ].map((t, i) => (
+              <div
+                key={t.n}
+                style={{ animationDelay: `${i * 100}ms` }}
+                className="reveal bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 relative border card-hover"
+              >
+                <Quote className="h-8 w-8 text-brand-blue/20 absolute top-4 right-4 group-hover:rotate-12 transition-transform" />
                 <div className="flex gap-1 mb-3 text-amber-500">
-                  {[0, 1, 2, 3, 4].map((i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+                  {[0, 1, 2, 3, 4].map((i2) => <Star key={i2} className="h-4 w-4 fill-current" />)}
                 </div>
                 <p className="text-sm text-muted-foreground italic mb-5 leading-relaxed">"{t.q}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="h-11 w-11 rounded-full bg-brand-blue text-white grid place-items-center font-bold">
+                  <div className="h-11 w-11 rounded-full bg-brand-blue text-white grid place-items-center font-bold ring-2 ring-cyan-200">
                     {t.n.charAt(0)}
                   </div>
                   <div>
