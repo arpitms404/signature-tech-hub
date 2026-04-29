@@ -5,6 +5,9 @@ import { CtaStrip } from "@/components/site/CtaStrip";
 import {
   CheckCircle2, Users, Award, Briefcase, Globe2, Code2, Smartphone,
   TrendingUp, ShieldCheck, Headphones, Star, Quote, ArrowRight,
+  GraduationCap as GraduationCapIcon, Network as NetworkIcon,
+  HeartPulse as HeartPulseIcon, Receipt as ReceiptIcon,
+  Building2 as Building2Icon, Coins as CoinsIcon,
 } from "lucide-react";
 import logo from "@/assets/logo-skilllogic.jpg";
 import hero from "@/assets/hero-illustration.png";
