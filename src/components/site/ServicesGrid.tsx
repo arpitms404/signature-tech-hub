@@ -27,19 +27,21 @@ export function ServicesGrid() {
           <p className="text-muted-foreground mt-2">Smart software & digital solutions for modern businesses</p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {services.map(({ I, t, d }) => (
+          {services.map(({ I, t, d }, idx) => (
             <div
               key={t}
-              className="group border border-border rounded-xl p-6 text-center bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-brand-blue"
+              style={{ animationDelay: `${idx * 60}ms` }}
+              className="group reveal border border-border rounded-xl p-6 text-center bg-white card-hover hover:border-brand-blue relative overflow-hidden"
             >
+              <span className="pointer-events-none absolute inset-x-0 -top-px h-1 bg-gradient-to-r from-brand-blue via-cyan-400 to-brand-blue opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="mx-auto h-16 w-16 rounded-full grid place-items-center bg-brand-blue/10 text-brand-blue mb-4 group-hover:bg-brand-blue group-hover:text-white transition-colors">
-                <I className="h-8 w-8" strokeWidth={1.6} />
+                <I className="h-8 w-8 icon-anim" strokeWidth={1.6} />
               </div>
               <h3 className="text-base font-bold text-brand-blue tracking-wide">{t}</h3>
               <p className="text-xs text-muted-foreground mt-2 mb-5 leading-relaxed">{d}</p>
               <Link
                 to="/contact"
-                className="inline-block bg-cyan-500 text-white text-xs font-bold tracking-wider px-4 py-2 rounded-full hover:bg-cyan-400 transition-colors"
+                className="inline-block bg-cyan-500 text-white text-xs font-bold tracking-wider px-4 py-2 rounded-full hover:bg-cyan-400 hover:scale-105 transition-all"
               >
                 CHECK IT OUT
               </Link>
