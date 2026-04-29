@@ -117,12 +117,12 @@ function Home() {
             { n: "350+", l: "Projects Delivered", I: Briefcase },
             { n: "25+", l: "Industry Awards", I: Award },
             { n: "15+", l: "Countries Served", I: Globe2 },
-          ].map(({ n, l, I }) => (
-            <div key={l} className="flex flex-col items-center">
-              <div className="h-14 w-14 rounded-full bg-brand-blue/10 grid place-items-center text-brand-blue mb-2">
-                <I className="h-7 w-7" />
+          ].map(({ n, l, I }, i) => (
+            <div key={l} className="flex flex-col items-center group reveal" style={{ animationDelay: `${i * 80}ms` }}>
+              <div className="h-14 w-14 rounded-full bg-brand-blue/10 grid place-items-center text-brand-blue mb-2 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                <I className="h-7 w-7 icon-anim" />
               </div>
-              <p className="text-3xl font-extrabold text-brand-blue">{n}</p>
+              <p className="text-3xl font-extrabold text-brand-blue group-hover:scale-110 transition-transform">{n}</p>
               <p className="text-sm text-muted-foreground font-medium">{l}</p>
             </div>
           ))}
@@ -135,7 +135,7 @@ function Home() {
           <div>
             <span className="text-cyan-600 font-bold tracking-widest text-sm">ABOUT US</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-              We Build Software That <span className="text-brand-blue">Drives Growth</span>
+              We Build Software That <span className="text-gradient-brand">Drives Growth</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
               SkillLogic Technologies Pvt. Ltd. was founded in 2021 with the mission of providing sophisticated
@@ -168,9 +168,13 @@ function Home() {
               { I: Smartphone, t: "Mobile First", c: "from-cyan-500 to-blue-500" },
               { I: TrendingUp, t: "Marketing", c: "from-amber-500 to-orange-500" },
               { I: ShieldCheck, t: "Secure & Audited", c: "from-indigo-500 to-purple-600" },
-            ].map(({ I, t, c }) => (
-              <div key={t} className={`bg-gradient-to-br ${c} text-white rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform`}>
-                <I className="h-10 w-10 mb-3 opacity-90" />
+            ].map(({ I, t, c }, i) => (
+              <div
+                key={t}
+                style={{ animationDelay: `${i * 90}ms` }}
+                className={`bg-gradient-to-br ${c} text-white rounded-2xl p-6 shadow-lg card-tilt reveal group`}
+              >
+                <I className="h-10 w-10 mb-3 opacity-90 group-hover:animate-icon-wiggle" />
                 <p className="font-bold text-lg">{t}</p>
               </div>
             ))}
@@ -198,13 +202,14 @@ function Home() {
               { t: "Crypto MLM", d: "Token-based payouts, wallet integration and on-chain transparency." },
               { t: "Smart Contract", d: "Trustless commission distribution via audited smart contracts." },
               { t: "Hybrid Plan", d: "Custom-blended compensation logic tailored to your business model." },
-            ].map((p) => (
+            ].map((p, i) => (
               <Link
                 key={p.t}
                 to="/mlm"
-                className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10 transition-all hover:-translate-y-1"
+                style={{ animationDelay: `${i * 60}ms` }}
+                className="reveal bg-white/5 hover:bg-white/15 backdrop-blur-sm rounded-xl p-5 border border-white/10 transition-all hover:-translate-y-1 hover:border-cyan-300/40 hover:shadow-[0_15px_40px_-10px_rgba(34,211,238,0.35)] group"
               >
-                <h3 className="text-lg font-bold text-cyan-300">{p.t}</h3>
+                <h3 className="text-lg font-bold text-cyan-300 group-hover:tracking-wide transition-all">{p.t}</h3>
                 <p className="text-sm text-white/75 mt-2">{p.d}</p>
               </Link>
             ))}
@@ -227,10 +232,14 @@ function Home() {
               { I: Award, t: "Industry Experts", d: "Decades of combined experience across software, marketing and finance." },
               { I: Users, t: "Client First Approach", d: "We listen, advise and customize. Your success is the only KPI we measure." },
               { I: CheckCircle2, t: "On-Time Delivery", d: "Agile sprints with weekly demos so you always know what's shipping when." },
-            ].map(({ I, t, d }) => (
-              <div key={t} className="border rounded-xl p-6 hover:border-brand-blue hover:shadow-lg transition-all bg-white group">
+            ].map(({ I, t, d }, i) => (
+              <div
+                key={t}
+                style={{ animationDelay: `${i * 70}ms` }}
+                className="reveal border rounded-xl p-6 hover:border-brand-blue card-hover bg-white group"
+              >
                 <div className="h-12 w-12 rounded-lg bg-brand-blue/10 text-brand-blue grid place-items-center mb-4 group-hover:bg-brand-blue group-hover:text-white transition-colors">
-                  <I className="h-6 w-6" />
+                  <I className="h-6 w-6 icon-anim" />
                 </div>
                 <h3 className="font-bold text-lg mb-2">{t}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{d}</p>
