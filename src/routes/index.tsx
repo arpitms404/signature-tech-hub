@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import logo from "@/assets/logo-skilllogic.jpg";
 import hero from "@/assets/hero-illustration.png";
+import heroVideo from "@/assets/hero-bg.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,16 +26,28 @@ function Home() {
   return (
     <Layout>
       {/* HERO */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, oklch(0.32 0.08 255) 0%, oklch(0.55 0.16 240) 60%, oklch(0.65 0.14 220) 100%)" }}
-      >
-        {/* decorative shapes */}
+      <section className="relative overflow-hidden isolate">
+        {/* Video background */}
+        <video
+          src={heroVideo.url}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover -z-10"
+        />
+        {/* Color overlay for legibility */}
+        <div
+          className="absolute inset-0 -z-10"
+          style={{ background: "linear-gradient(135deg, oklch(0.32 0.08 255 / 0.88) 0%, oklch(0.45 0.16 240 / 0.78) 60%, oklch(0.55 0.14 220 / 0.72) 100%)" }}
+        />
         <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/5 blur-2xl" />
         <div className="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-cyan-300/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-14 md:py-20 grid lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-5 order-2 lg:order-1">
+          <div className="lg:col-span-5 order-2 lg:order-1 animate-slide-in-left">
             <img
               src={hero}
               alt="Software development team"
@@ -44,34 +57,38 @@ function Home() {
             />
           </div>
 
-          <div className="lg:col-span-7 order-1 lg:order-2 text-white">
+          <div className="lg:col-span-7 order-1 lg:order-2 text-white animate-slide-in-right">
             <div className="flex justify-end mb-6">
-              <div className="bg-white rounded-xl px-4 py-2 shadow-xl">
+              <div className="bg-white rounded-xl px-4 py-2 shadow-xl card-hover">
                 <img src={logo} alt="SkillLogic" className="h-12 w-auto" />
               </div>
             </div>
 
-            <span className="inline-block bg-white/15 backdrop-blur-sm text-white text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full mb-4">
+            <span className="inline-block bg-white/15 backdrop-blur-sm text-white text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full mb-4 reveal">
               Trusted by 500+ businesses worldwide
             </span>
 
             <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-3">
-                <span className="mt-3 h-2.5 w-2.5 rounded-full bg-cyan-300 shrink-0" />
-                <span className="text-3xl md:text-5xl font-extrabold leading-tight drop-shadow">School Management Software</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-3 h-2.5 w-2.5 rounded-full bg-cyan-300 shrink-0" />
-                <span className="text-3xl md:text-5xl font-extrabold leading-tight drop-shadow">MLM Software</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-3 h-2.5 w-2.5 rounded-full bg-cyan-300 shrink-0" />
-                <span className="text-3xl md:text-5xl font-extrabold leading-tight drop-shadow">ERP & CRM Solutions</span>
-              </li>
+              {[
+                "School Management Software",
+                "MLM Software",
+                "ERP & CRM Solutions",
+              ].map((line, i) => (
+                <li
+                  key={line}
+                  className="flex items-start gap-3 reveal"
+                  style={{ animationDelay: `${150 + i * 120}ms` }}
+                >
+                  <span className="mt-3 h-2.5 w-2.5 rounded-full bg-cyan-300 shrink-0 animate-pulse" />
+                  <span className="text-3xl md:text-5xl font-extrabold leading-tight drop-shadow">
+                    {line}
+                  </span>
+                </li>
+              ))}
             </ul>
 
-            <div className="flex flex-wrap items-stretch gap-4">
-              <div className="inline-flex items-stretch rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-400 to-orange-500">
+            <div className="flex flex-wrap items-stretch gap-4 reveal reveal-delay-4">
+              <div className="inline-flex items-stretch rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-400 to-orange-500 card-hover">
                 <div className="px-5 py-4 flex items-center text-white font-bold text-lg leading-tight">
                   Call for<br />Demo
                 </div>
@@ -83,9 +100,9 @@ function Home() {
               </div>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 transition-colors text-white font-bold px-6 rounded-2xl shadow-xl"
+                className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 transition-all hover:scale-105 text-white font-bold px-6 rounded-2xl shadow-xl group"
               >
-                Get a Free Quote <ArrowRight className="h-4 w-4" />
+                Get a Free Quote <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
