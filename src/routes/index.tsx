@@ -8,6 +8,7 @@ import {
   GraduationCap as GraduationCapIcon, Network as NetworkIcon,
   HeartPulse as HeartPulseIcon, Receipt as ReceiptIcon,
   Building2 as Building2Icon, Coins as CoinsIcon,
+  Search, PencilRuler, Rocket, LifeBuoy, Workflow,
 } from "lucide-react";
 import logo from "@/assets/logo-skilllogic.jpg";
 import hero from "@/assets/hero-illustration.png";
@@ -339,6 +340,135 @@ function Home() {
                   </span>
                 </div>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS / WORKFLOW */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-blue/30 to-transparent" />
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="text-center mb-14">
+            <span className="text-cyan-600 font-bold tracking-[0.25em] text-xs uppercase">How We Work</span>
+            <h2 className="font-display text-3xl md:text-5xl font-semibold mt-3">
+              A proven <span className="text-gradient-brand">5-step process</span>
+            </h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+              From the first conversation to long-term support — every engagement follows
+              the same disciplined workflow that keeps quality high and surprises low.
+            </p>
+          </div>
+          {/* Connector line */}
+          <div className="relative">
+            <div className="hidden lg:block absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-brand-blue/0 via-brand-blue/40 to-brand-blue/0" />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+              {[
+                { I: Search, t: "Discover", d: "Workshops to understand goals, audience, scope and success metrics." },
+                { I: PencilRuler, t: "Design", d: "Wireframes, UI prototypes and clickable flows reviewed with you." },
+                { I: Code2, t: "Develop", d: "Agile sprints, weekly demos, code reviews and CI/CD pipelines." },
+                { I: Rocket, t: "Deploy", d: "Performance, security & UAT sign-off, then a smooth production launch." },
+                { I: LifeBuoy, t: "Support", d: "Continuous monitoring, updates and 24/7 helpdesk for your team." },
+              ].map((s, i) => (
+                <div
+                  key={s.t}
+                  style={{ animationDelay: `${i * 100}ms` }}
+                  className="reveal relative text-center group"
+                >
+                  <div className="relative mx-auto h-24 w-24 rounded-full bg-white border-2 border-brand-blue/20 grid place-items-center text-brand-blue shadow-lg group-hover:border-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all">
+                    <s.I className="h-9 w-9 icon-anim" strokeWidth={1.6} />
+                    <span className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-amber-400 text-white text-xs font-bold grid place-items-center shadow-md">
+                      0{i + 1}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-lg mt-5">{s.t}</h3>
+                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{s.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TECHNOLOGIES STACK */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-cyan-50/50 relative overflow-hidden">
+        <div className="absolute -top-40 -left-20 w-96 h-96 rounded-full bg-brand-blue/5 blur-3xl" />
+        <div className="absolute -bottom-40 -right-20 w-96 h-96 rounded-full bg-cyan-400/5 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl px-4">
+          <div className="text-center mb-12">
+            <span className="text-cyan-600 font-bold tracking-[0.25em] text-xs uppercase">Tech Stack</span>
+            <h2 className="font-display text-3xl md:text-5xl font-semibold mt-3">
+              Built with <span className="text-gradient-brand">modern technologies</span>
+            </h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+              We use the same stack trusted by Fortune 500 product teams — fast, secure
+              and built to scale alongside your business.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                cat: "Frontend",
+                color: "from-blue-500 to-cyan-500",
+                items: ["React", "Next.js", "TypeScript", "Tailwind", "Vue", "Angular"],
+              },
+              {
+                cat: "Backend",
+                color: "from-emerald-500 to-teal-600",
+                items: ["Node.js", "Python", "Java", "PHP / Laravel", "Go", ".NET"],
+              },
+              {
+                cat: "Mobile",
+                color: "from-violet-500 to-purple-600",
+                items: ["Flutter", "React Native", "Swift", "Kotlin", "Ionic", "PWA"],
+              },
+              {
+                cat: "Database & Cloud",
+                color: "from-amber-500 to-orange-600",
+                items: ["PostgreSQL", "MongoDB", "MySQL", "AWS", "Azure", "GCP"],
+              },
+            ].map((g, i) => (
+              <div
+                key={g.cat}
+                style={{ animationDelay: `${i * 80}ms` }}
+                className="reveal relative rounded-2xl bg-white border border-border p-6 card-hover group overflow-hidden"
+              >
+                <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${g.color}`} />
+                <div className={`inline-flex items-center justify-center h-11 w-11 rounded-xl bg-gradient-to-br ${g.color} text-white mb-4 shadow-md`}>
+                  <Workflow className="h-5 w-5" />
+                </div>
+                <h3 className="font-bold text-lg mb-3">{g.cat}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {g.items.map((it) => (
+                    <span
+                      key={it}
+                      className="text-xs font-medium px-3 py-1 rounded-full bg-secondary text-foreground/80 border border-border hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-colors"
+                    >
+                      {it}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Success rate strip */}
+          <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { k: "98%", v: "Client Retention" },
+              { k: "350+", v: "Projects Delivered" },
+              { k: "24/7", v: "Support Coverage" },
+              { k: "5★", v: "Average Rating" },
+            ].map((s, i) => (
+              <div
+                key={s.v}
+                style={{ animationDelay: `${i * 70}ms` }}
+                className="reveal text-center rounded-2xl bg-white border border-border p-6 card-hover"
+              >
+                <p className="font-display text-3xl md:text-4xl text-gradient-brand">{s.k}</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">{s.v}</p>
+              </div>
             ))}
           </div>
         </div>
